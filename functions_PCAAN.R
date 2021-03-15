@@ -1,8 +1,3 @@
-# Functional library of the PrincipalExpectile algorithm
-# ------------------------------------------------------------------------------
-# Authors:     	Ngoc Mai Tran, Maria Osipenko
-# ------------------------------------------------------------------------------
-
 #FUNCTION etilde
 #   return the tau-expectile estimate with given partition
 #   Y: data matrix p times n. p is the dimension, n number of observations
