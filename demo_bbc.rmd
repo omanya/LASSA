@@ -151,6 +151,6 @@ legend('bottomright',legend=c('PEC based','PCA based'),lty=c(1,2),col=c(1,1),cex
 ## Words from tech
 
 ```{r}
-print(paste("words with the highest weights by PEC are:",paste(names(tail(sort(abs(pecdirs[,5])),20)),collapse="; ")))
+print(paste("words with the highest weights by PEC are:",paste(rev(names(tail(sort(abs(pecdirs[,5])),20))),collapse="; ")))
 ```
 
