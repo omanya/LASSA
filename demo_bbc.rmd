@@ -3,16 +3,15 @@ title: "BBC news articles: LSA versus PEC"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE,message=FALSE,warning= F}
 knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
 ## Preprocessing the data
 
-Data BBC news aquired on 15.03.2021: http://mlg.ucd.ie/files/datasets/bbc-fulltext.zip
-
-Preprocessing the BBC News articles: take all articles from the categories business and politics, and take only a small number of articles from the tech topic.
+Download and preprocess the BBC news data from http://mlg.ucd.ie/files/datasets/bbc-fulltext.zip
+Preprocessing of the BBC News articles consists of taking all articles from the categories business and politics, and keeping only a small number of articles from the tech topic.
 
 ```{r}
 rm(list=ls())
@@ -54,11 +53,11 @@ docs<-docs[ind]; label<-label[ind]
 unlink(temp)
 ```
 
-## Document feature matrix (dfm)
+## Text Corpus
 
-Use R-Package Quanteda to set up a corpus, to split in tokens, to construct a dfm based on the articles corpus.
+Use R-Package Quanteda (Benoit K, Watanabe K, Wang H, Nulty P, Obeng A, Müller S, Matsuo A (2018). “quanteda: An R package for the quantitative analysis of textual data.” Journal of Open Source Software, 3(30), 774. doi: 10.21105/joss.00774, https://quanteda.io.) to set up a corpus, to split in tokens, and compute the relative frequencies.
 
-```{r, warnings=F}
+```{r, warnings=F, message=FALSE}
 library(quanteda)
 mycorpus<-corpus(docs)
 print(paste("Number of docs is",ndoc(mycorpus)))
